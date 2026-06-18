@@ -32,6 +32,19 @@
 | 编排 | Python | 文件遍历、格式转换（PDF→JPG、DOCX→PDF→JPG） | PyMuPDF 渲染 PDF 简单高效；LibreOffice 命令行调用便捷 |
 | 文档生成 | C#/.NET | 结构化排版、样式继承、编号绑定 | OpenXML SDK 是微软官方库，处理复杂文档结构远超 Python-docx |
 
+## 子技能依赖
+
+本技能依赖以下子技能，需与工作目录并列安装：
+
+| 子技能 | 路径 | 职责 | 阶段 |
+|--------|------|------|------|
+| **minimax-docx** | `~/.workbuddy/skills/minimax-docx/` | 创建最终 DOCX 文档（样式、编号、图片排版） | 阶段 2 |
+| **minimax-xlsx** | `~/.workbuddy/skills/minimax-xlsx/` | Excel 读写参考（本技能脚本直接调用 pandas/openpyxl 读取分项报价表） | 阶段 1 |
+| **pdf** | `~/.workbuddy/skills/pdf/` | PDF 处理参考（本技能脚本直接调用 PyMuPDF） | 阶段 1 |
+| **docx** | `~/.workbuddy/skills/docx/` | Word→图片转换参考（soffice → PDF → JPG 流水线） | 阶段 1 |
+
+> **注意**：阶段 1 由 `scripts/orchestrate.py` 独立完成，`minimax-xlsx`、`pdf` 和 `docx` 子技能仅为参考文档，脚本自身包含所有转换逻辑。阶段 2 必须依赖 `minimax-docx` 完成 DOCX 输出。
+
 ## 前置条件
 
 ### Python 依赖

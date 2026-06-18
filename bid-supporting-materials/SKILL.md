@@ -243,6 +243,7 @@ dotnet run --project scripts/dotnet/MiniMaxAIDocx.Cli -- create-bid-doc --manife
 | 子技能 | 路径 | 用途 |
 |--------|------|------|
 | minimax-docx | `~/.workbuddy/skills/minimax-docx/` | 创建最终 DOCX 文档 |
+| minimax-xlsx | `~/.workbuddy/skills/minimax-xlsx/` | Excel 读写参考（本技能脚本直接使用 pandas/openpyxl 读取分项报价表） |
 | pdf | `~/.workbuddy/skills/pdf/` | PDF 处理参考（本技能脚本直接使用 PyMuPDF） |
 | docx | `~/.workbuddy/skills/docx/` | Word→图片转换（soffice → PDF → pdftoppm/JPG 方式） |
 
